@@ -1,3 +1,50 @@
 .register {
-    background-color: blue;
+    background-color: #202020;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 100vh;
+    outline: 1px solid rgb(243, 110, 255);
+}
+.register-content {
+    margin: 0 auto;
+    outline: 1px solid rgb(55, 255, 99);
+    width: 396px;
+    height: 100vh;
+    
+}
+.register-top {
+    width: 396px;
+    height: 217px;
+    outline: 1px solid rgb(0, 82, 18);
+    
+}
+.register-top__logo {
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+.register-top__text {
+    font-family: Inter;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+}
+.register-form {
+    width: 396px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-form__label {
+    color: #8B8B8B;
+}
+.register-form__input {
+    background-color: #202020;
+    width: 396px;
 }
