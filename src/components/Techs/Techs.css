@@ -1,28 +1,28 @@
 .techs {
     outline: 1px solid rgb(243, 110, 255);
 }
-.promo {
+.techs {
     
 }
-.promo__content {
+.techs {
     outline: 1px solid rgb(185, 0, 71);
 }
-.promo-text {
+.techs-text {
     outline: 1px solid rgb(226, 7, 7);
 }
-.promo-text__title {
+.techs-text__title {
     outline: 1px solid rgb(210, 255, 10);
 }
-.promo-text__subtitle {
+.techs-text__subtitle {
     outline: 1px solid rgb(160, 189, 0);
 }
-.promo__logo-box {
+.techs-box {
     outline: 1px solid rgb(0, 238, 0);
 }
-.promo-link {
-    outline: 1px dotted rgb(1, 135, 212);
+.techs-link {
+    
 }
-.promo-link_text {
-    outline: 1px solid rgb(0, 10, 156);
+.techs-link_text {
+    
 }
 

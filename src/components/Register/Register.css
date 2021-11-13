@@ -6,19 +6,19 @@
     max-width: 1280px;
     margin: 0 auto;
     height: 100vh;
-    outline: 1px solid rgb(243, 110, 255);
+    
 }
 .register-content {
     margin: 0 auto;
-    outline: 1px solid rgb(55, 255, 99);
+   
     width: 396px;
     height: 100vh;
     
 }
 .register-top {
     width: 396px;
-    height: 217px;
-    outline: 1px solid rgb(0, 82, 18);
+   
+   
     
 }
 .register-top__logo {
@@ -34,6 +34,7 @@
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
+    margin-bottom: 20px;
 }
 .register-form {
     width: 396px;
@@ -43,8 +44,105 @@
 }
 .register-form__label {
     color: #8B8B8B;
+    
 }
-.register-form__input {
+.register-form__input{
     background-color: #202020;
     width: 396px;
+    border: none;
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+padding: 0;
+margin-top: 5px;
+border-bottom: 1px solid #424242;
+color: #FFFFFF;
+padding-bottom: 10px;
+}
+.register-form__input_pass{
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+
+color: #EE3465;
+
+}
+
+.register-form-error{
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 10px;
+line-height: 12px;
+
+color: #EE3465;
+}
+
+.register-form__inputBox{
+    
+    margin-bottom: 24px;
+}
+
+.register-submit{
+    margin-top: 156px;
+    margin-bottom: 16px;
+    width: 396px;
+height: 45px;
+background: #4285F4;
+border-radius: 3px;
+padding: 0;
+border: none;
+
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+box-shadow: none;
+}
+
+.register-box{
+display: flex;
+}
+
+.register-box__text{
+    margin: 0;
+    margin-right: 6px;
+    padding: 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    color: #8B8B8B;
+}
+
+.register-box__link{
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 17px;
+text-decoration: none;
+
+text-align: center;
+margin: 0;
+    padding: 0;
+color: #4285F4;
 }
