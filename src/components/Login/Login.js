@@ -28,8 +28,8 @@ const Login = () => {
               Зарегистрироваться
     </button>
     <div className='login__regText'>
-      <h3 className='login__regText'>Ещё не зарегистрированы? </h3>
-      <h3 className='login__regText'><a className='login__regText-link' href="/signup">Регистрация</a></h3>
+      <h3 className='123'>Ещё не зарегистрированы? </h3>
+      <h3 className='345'><a className='login__regText-link' href="/signup">Регистрация</a></h3>
     </div>
       </div>  
     );
