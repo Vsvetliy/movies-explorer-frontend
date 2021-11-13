@@ -1,5 +1,5 @@
 import "./Promo.css"
-import logo from "../../images/logo.svg"
+
 import promoLogo from "../../images/promoLogo.svg"
 
 const Promo = () => {

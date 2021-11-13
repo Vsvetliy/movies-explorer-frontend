@@ -1,9 +1,8 @@
-.promo {
-    background-color: #202020;
-    max-width: 1280px;
-    margin: 0 auto;
-    height: 574px;
+.techs {
     outline: 1px solid rgb(243, 110, 255);
+}
+.promo {
+    
 }
 .promo__content {
     outline: 1px solid rgb(185, 0, 71);
