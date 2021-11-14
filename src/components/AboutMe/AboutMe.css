@@ -1,0 +1,114 @@
+.aboutMe {
+    background-color: #202020;
+    max-width: 1280px;
+    margin: 0 auto;
+   padding-top: 110px;
+}
+
+.aboutMe-title {
+    margin: 0;
+    padding: 0;
+    margin-left: 70px;
+margin-bottom: 23px;
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 22px;
+line-height: 27px;
+/* identical to box height */
+
+letter-spacing: -0.04em;
+
+color: #FFFFFF;
+}
+
+.aboutMe-content {
+    padding: 0;
+    margin: 0 auto;
+    border-top: 1px solid #DADADA;
+    max-width: 1140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 66px;
+}
+
+.aboutMe-name {
+    margin: 0;
+    
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 58px;
+    /* identical to box height, or 116% */
+    
+    letter-spacing: -0.04em;
+    
+    color: #FFFFFF;
+}
+
+.aboutMe-profession {
+    margin: 0;
+    margin-top: 18px;
+    margin-bottom: 26px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    
+    
+    color: #FFFFFF;
+    
+    mix-blend-mode: normal;
+}
+
+.aboutMe-description {
+margin: 0;
+padding: 0;
+max-width: 600px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 22px;
+/* or 157% */
+
+
+color: #FFFFFF;
+}
+
+.aboutMe-social {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    margin-top: 99px;
+}
+
+.aboutMe-social__link {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    
+    color: #FFFFFF;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.aboutMe-imageBox {
+width: 270px;
+height: 327px;
+border-radius: 10px;
+}
+
+.aboutMe-img {
+
+}
+
+

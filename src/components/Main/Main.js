@@ -7,11 +7,11 @@ import Portfolio from "../Portfolio/Portfolio"
 const Main = () => {
     return (
         <main className = "content">
-           {/*   <Promo />                десктоп    
-            <AboutProject />              {/*десктоп*/}   
-            <Techs />
-           {/* <AboutMe />
-           <Portfolio />*/}
+          <Promo />                
+            <AboutProject />              
+            <Techs />               
+           <AboutMe />          
+          <Portfolio />
         </main>
     );
 }
