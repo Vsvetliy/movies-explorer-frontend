@@ -3,6 +3,7 @@ import  Register  from "../Register/Register";
 import Login from "../Login/Login";
 import Main from "../Main/Main"
 import Profile from "../Profile/Profile"
+import Movies from "../Movies/Movies"
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route path = "/signin" element = {<Login />} />  {/*десктоп*/}
                 <Route path = "/profile" element = {<Profile />} />   {/*десктоп*/}
                 <Route path = "/1" element = {<Main />} />
+                <Route path = "/movies" element = {<Movies />} />
             </Routes>
         </div>
     );
