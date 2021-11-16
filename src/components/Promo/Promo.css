@@ -79,3 +79,55 @@ text-decoration: none;
 color: #FFFFFF;
 }
 
+@media screen and (max-width: 880px) {
+    .promo-content {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-left: 44px;
+      margin-right: 44px;
+    }
+  
+    .promo-text__title {
+        max-width: 680px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 40px;
+        line-height: 50px;
+        /* or 125% */
+        
+        text-align: center;
+        
+        color: #FFFFFF;
+    }
+    .promo-text__subtitle {
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+        
+        color: #FFFFFF;
+        
+        mix-blend-mode: normal;
+        opacity: 0.5;
+    }
+    .promo-text {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .promo-link {
+      margin: 0 auto;
+    }
+    .promo {
+      
+      height: 784px;
+    }
+  }
+  
+ 

@@ -50,8 +50,15 @@ color: #FFFFFF;
 }
 
 .progressWeek{
-display: flex;
-width: 1140px;
+    width: 100%;
+	
+    display: flex;
+    
+        justify-content: center;
+    
+
+/* display: flex;
+width: 1140px; */
 margin: 0 auto;
 }
 
@@ -103,3 +110,20 @@ text-align: center;
 
 color: #8B8B8B;
 }
+
+
+@media screen and (max-width: 880px) {
+    
+
+    .aboutProject {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .aboutProject-title{
+    
+        margin-left: 0;
+        
+    }
+  
+  }
+  

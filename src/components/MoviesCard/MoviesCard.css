@@ -1,18 +1,26 @@
 .moviesCard{
     display: flex;
+     
+flex-direction: row;
+    
     height: 134px;
     justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
+	margin-left: 70px;
+	margin-right: 70px;
     background-color: #2F2F2F;
-    align-items: center
+    align-items: center;
+    
+  
+    
 }
 
 .moviesCard-info{
     margin: 0;
     margin-left: 22px;
     padding: 0;
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: flex-start
 }
@@ -35,13 +43,13 @@
     font-weight: normal;
     font-size: 11px;
     line-height: 13px;
-    display: flex;
-    align-items: center;
+   
     
     color: #8B8B8B;
 }
 
 .moviesCard-info__title{
+	max-width: 100%;
     margin: 0;
     margin-bottom: 13px;
     padding: 0;
@@ -55,4 +63,3 @@
     
     color: #FFFFFF;  
 }
-
