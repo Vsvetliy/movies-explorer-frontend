@@ -1,5 +1,5 @@
 import "./Profile.css"
-import logo from "../../images/logo.svg"
+
 
 const Profile = () => {
     return (

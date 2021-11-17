@@ -9,33 +9,28 @@
   background-color: #202020;
   color: rgb(255, 255, 255);
 }
-
 .profile-top__text {
     margin-top: 74px;
     margin-bottom: 123px;
     font-family: Inter;
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 29px;
-
-text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
 }
-
 .profile-form {
     display: flex;
-  flex-direction: column;
-  align-items: center
+    flex-direction: column;
+    align-items: center
 }
-
 .profile-form-name {
     padding: 17px;
- width: 410px;
+    width: 410px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
 .profile-form-email {
     padding: 17px;
     border-top: 1px solid #424242;
@@ -44,71 +39,53 @@ text-align: center;
     flex-direction: row;
     justify-content: space-between;
 }
-
 .profile-form__label {
     font-family: Inter;
-font-style: normal;
-font-weight: 500;
-font-size: 11px;
-line-height: 13px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
 }
-
 .profile-form__input {
     border: none;
     text-align:right;
     background-color: #202020;
     color: rgb(255, 255, 255);
     font-family: Inter;
-font-style: normal;
-font-weight: normal;
-font-size: 11px;
-line-height: 13px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
 }
-
-.profile-buttonbox {
-    
-}
-
 .profile-buttonbox__reg {
     display: flex;
-align-items: center;
-text-align: center;
-margin: 0;
-margin-top: 220px;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    margin-top: 220px;
 }
-
 .profile-buttonbox__exit {
     margin: 0;
     margin-top: 16px;
 }
-
 .profile-buttonbox__reg__link {
     font-family: Inter;
-font-style: normal;
-font-weight: normal;
-font-size: 13px;
-line-height: 16px;
-/* identical to box height 
-
-display: flex;
-align-items: center;
-text-align: center;
-*/
-text-decoration: none;
-margin: 0 auto;
-color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    text-decoration: none;
+    margin: 0 auto;
+    color: #FFFFFF;
 }
-
 .profile-buttonbox__exit__link {
     font-family: Inter;
-font-style: normal;
-font-weight: 500;
-font-size: 13px;
-line-height: 16px;
-/* identical to box height */
-
-text-align: center;
-text-decoration: none;
-color: #EE3465;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #EE3465;
 }
 
