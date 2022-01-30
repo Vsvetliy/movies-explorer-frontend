@@ -1,0 +1,134 @@
+.promo {
+    background-color: #073042;    
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 574px;   
+}
+.promo-content {    
+    display: flex;
+    margin-left: 70px;
+    margin-right: 70px;
+    justify-content: space-between
+}
+.promo-text {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column
+}
+.promo-text__title {
+    max-width: 640px;
+    margin: 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 58px;
+    color: #FFFFFF;
+}
+
+.promo-text__subtitle {
+    margin: 0;
+    margin-top: 36px;
+    margin-bottom: 146px;
+    max-width: 310px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FFFFFF;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+.promo-logo__box {
+    margin-top: 70px;
+}
+.promo-link {
+    margin-left: 70px;
+    width: 129px;
+    height: 36px;
+    opacity: 0.6;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.promo-link__text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 880px) {
+    .promo-content {
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-left: 44px;
+      margin-right: 44px;
+    }  
+    .promo-text__title {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 40px;
+        line-height: 50px;
+        text-align: center;
+    }
+    .promo-text__subtitle {
+       margin-left: 30px;
+       margin-right: 30px;
+       text-align: center;
+    }
+    .promo-text {
+      margin-top: 48px;
+      align-items: center;
+    }
+    .promo-link {
+      margin: 0 auto;
+    }
+    .promo {
+      height: 784px;
+    }
+  }
+  @media screen and (max-width: 680px) {
+    .promo-logo {
+        width: 210px;
+        height: 206px;
+    }
+    .promo-content {
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-left: 10px;
+      margin-right: 10px;
+    }  
+    .promo-text__title {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 30px;
+        line-height: 38px;
+        
+    }
+    .promo-text__subtitle {
+        margin-top: 24px;
+        margin-bottom: 80px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .promo-text {
+      margin-top: 40px;
+      align-items: center;
+    }
+    .promo-link {
+      margin: 0 auto;
+    }
+    .promo {
+        padding-bottom: 30px;
+      height: auto;
+    }
+  }
+ 
