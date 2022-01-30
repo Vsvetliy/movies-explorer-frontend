@@ -13,8 +13,8 @@ const AboutMe = () => {
                 <p className = "aboutMe-description">Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена 
       и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
                 <ul className = "aboutMe-social">
-                  <li className = "aboutMe-social__link">Facebook</li>
-                  <li className = "aboutMe-social__link">Github</li>
+                  <li className = "aboutMe-social__link"><a  className="footer-linkBox__list-link" rel = "noreferrer"  href="https://practicum.yandex.ru" target="_blank">Facebook</a></li>
+                  <li className = "aboutMe-social__link"><a  className="footer-linkBox__list-link" rel = "noreferrer"  href="https://practicum.yandex.ru" target="_blank">Github</a></li>
                 </ul>
             </div>
 

@@ -14,7 +14,7 @@ const SearchForm = () => {
             <div className = "searchFormBox-iputBox">
                 <img className = "searchFormBox-iputBox-icon"  src={searchIcon} alt="стрелка"></img>
                 <input placeholder="Фильм" className = "searchFormBox-iputBox-input"></input>
-                <button className = "searchFormBox-iputBox-button"><img class = "searchFormBox-button-icon"  src={searchBtnIcon} alt="стрелка"></img></button>
+                <button className = "searchFormBox-iputBox-button"><img className="searchFormBox-button-icon"  src={searchBtnIcon} alt="стрелка"></img></button>
             </div>
             <label className="checkbox">
                 <input type="checkbox" />

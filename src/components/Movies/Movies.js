@@ -3,13 +3,14 @@ import SearchForm from "../SearchForm/SearchForm"
 
 import MoviesCardList from "../MoviesCardList/MoviesCardList"
 import Footer from "../Footer/Footer"
-
+import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
 const Movies = () => {
     return (
         <div className = "content">
-        <SearchForm />                
-        <MoviesCardList />
-        <Footer />
+          <HeaderLogIn/>
+        <SearchForm />                 
+      <MoviesCardList />
+        <Footer /> 
 
         </div>
     );

@@ -1,5 +1,5 @@
 import "./NotFound.css"
-
+import { Link } from "react-router-dom";
 
 
 const NotFound = () => {
@@ -13,7 +13,7 @@ const NotFound = () => {
 
         </div>
   
-        <div class="notFound-linkBack">Назад</div>
+        <Link to="/" class="notFound-linkBack">Назад</Link>
         
       </div>
     );

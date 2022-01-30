@@ -29,13 +29,27 @@
     width: 320px;
     height: 36px;
     font-family: Inter;
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 15px;
-/* display: flex;
-align-items: center;
-text-align: center; */
-
-color: #FFFFFF;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;    
+    color: #FFFFFF;
 }
+
+@media screen and (max-width: 650px) {
+    .MoviesCardList-box{
+        width: 100%;
+        flex-direction: column;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+        margin: 0 auto;
+        padding: 0;
+    
+    }
+    .MoviesCardList-buttom{
+       
+        width: 240px;
+        
+    }
+  }  

@@ -44,6 +44,7 @@
 }
 
 .footer-linkBox__list-link{
+    text-decoration: none;
     padding: 0;
     margin: 0;
     margin-left: 20px;

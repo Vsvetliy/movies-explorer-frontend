@@ -15,9 +15,9 @@ const Footer = () => {
 
         <ul className="footer-linkBox__list">
 
-          <li className="footer-linkBox__list-link">Яндекс.Практикум</li>
-          <li className="footer-linkBox__list-link">Github</li>
-          <li className="footer-linkBox__list-link">Facebook</li>
+          <li><a  className="footer-linkBox__list-link" rel = "noreferrer"  href="https://practicum.yandex.ru" target="_blank" >Яндекс.Практикум</a></li>
+          <li><a  className="footer-linkBox__list-link" rel = "noreferrer"  href="https://practicum.yandex.ru" target="_blank">Github</a></li>
+          <li><a  className="footer-linkBox__list-link" rel = "noreferrer"  href="https://practicum.yandex.ru" target="_blank">Facebook</a></li>
         </ul>
         
       </div>
