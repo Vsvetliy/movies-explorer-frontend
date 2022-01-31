@@ -1,5 +1,5 @@
 .HeaderDefault{
-    background-color: #202020;
+    background-color: #073042;
     margin: 0 auto;
     padding: 0;
     max-width: 1280px;
@@ -77,8 +77,9 @@
    
     
     .HeaderDefault-linkBox__list-link{
+        
         font-size: 10px;
-line-height: 16px;
+        line-height: 16px;
         margin: 0;
         
     }

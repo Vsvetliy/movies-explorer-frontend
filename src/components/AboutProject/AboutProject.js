@@ -27,7 +27,7 @@ const AboutProject = () => {
           </div>
 
           <div className="progressWeek-item">
-            <div className="progressWeek-item__section">4 недели</div>
+            <div className="progressWeek-item__section progressWeek-item__section_textColor">4 недели</div>
             <p className="progressWeek-item__subtitle">Front-end</p>
           </div>
 

@@ -138,17 +138,28 @@
 
   @media screen and (max-width: 700px) {
     .searchFormBox{
+		position: relative;
 		margin-left:  10px; 
 		margin-right: 10px;
 		flex-direction: column;
 		align-items: center;
+		border-radius: 5px;
+		margin-bottom: 29px;
 	}
 	
     .searchFormBox-iputBox{    
 		padding-right: 0;
-		margin-bottom: 46px;
+		margin-bottom: 0px;
 	}
     .searchFormBox-iputBox-icon{
 		display: none;
 	}
+	.checkbox{
+		position: absolute;
+		top: 100px;
+		
+		background-color: #202020;
+		
+	}
+	
   }  

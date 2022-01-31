@@ -91,6 +91,9 @@ color: #FFFFFF;
 }
 
 @media screen and (max-width: 800px) {
+    .HeaderLogIn-linkBox__list-link{
+        display: none;
+    }
     .headerLogoLogIn{
         
        display: none;

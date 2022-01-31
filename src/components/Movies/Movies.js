@@ -7,10 +7,10 @@ import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
 const Movies = () => {
     return (
         <div className = "content">
-          <HeaderLogIn/>
-        <SearchForm />                 
-      <MoviesCardList />
-        <Footer /> 
+           <HeaderLogIn/>
+           <SearchForm />                 
+           <MoviesCardList />
+           <Footer /> 
 
         </div>
     );

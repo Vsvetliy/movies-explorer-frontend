@@ -9,7 +9,7 @@ const SavedMovies = () => {
         <div className = "SavedMovies">
           <HeaderLogIn/>
         <SearchForm />                
-        <MoviesCardList />
+        <MoviesCardList onlikrestik ={true} />
         <Footer />
 
         </div>

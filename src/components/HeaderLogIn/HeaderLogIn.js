@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import headerLogoLogIn from "../../images/HeaderLogInLogo.svg"
 import HeaderLogInLogo from "../../images/headerLogo.svg"
 import NavigateLogoUser from "../../images/HeaderLogInLogo.svg"
-import CloseNavigate from "../../images/CloseNavigate.svg"
-import NavigateLogo from "../../images/NavigateLogo.svg"
+
 function axctive() {
     document.getElementById("menu").classList.toggle("active")
 
@@ -16,15 +15,16 @@ const HeaderLogIn = () => {
         <header className = "HeaderLogIn">
                           
             <div className="HeaderLogIn-linkBox">
-
+            <Link to="/">
                 <img className="HeaderLogInLogo" src={HeaderLogInLogo} alt="Header logo" />
+            </Link>
                 <div className="HeaderLogIn-linkBox__list">
                     <Link to="/movies" className="HeaderLogIn-linkBox__list-link">Фильмы</Link>
                     <Link to="/saved-movies" className="HeaderLogIn-linkBox__list-link">Сохранённые фильмы</Link>
                 </div>
                 
-                <img className="headerLogoLogIn" src={headerLogoLogIn} alt="Header logo" />
-                {/* <img className="navigateLogoPolosochki" src={NavigateLogo} alt="Header logo" /> */}
+                    <img className="headerLogoLogIn" src={headerLogoLogIn} alt="Header logo" />
+                
                 <div
                  className="navigateLogoPolosochki"
                   onClick={() => {axctive()}}

@@ -65,6 +65,9 @@
     text-align: center;
     color: #000000;
 }
+.progressWeek-item__section_textColor{
+    color: rgb(255, 255, 255);
+}
 .progressWeek-item__section_active{
     background-color: #3DDC84;
 }
@@ -80,6 +83,24 @@
     text-align: center;
     color: #8B8B8B;
 }
+@media screen and (max-width: 1200px) {
+    .aboutProject {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 68px;
+    }
+    .aboutProject-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    .aboutProject-info__column{
+        width: 419px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+  }
 
 @media screen and (max-width: 880px) {
     .aboutProject {
@@ -87,6 +108,7 @@
         padding-right: 50px;
         padding-top: 68px;
     }
+   
     .aboutProject-title{
         margin-left: 0;
     }
@@ -105,10 +127,16 @@
         display: flex;
         flex-direction: column;
         padding-top: 4px;
+        align-items: center;
     }
     .aboutProject-info__column{
         margin-top: 56px;
         margin-bottom: 0px;
+        
+            width: 284px;
+            padding-left: 0px;
+            padding-right: 0px;
+        
     }
     .aboutProject-info__text{
         margin-bottom: 0;

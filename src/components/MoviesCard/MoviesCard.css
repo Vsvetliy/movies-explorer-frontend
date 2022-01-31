@@ -51,6 +51,10 @@
     line-height: 22px;    
     color: #FFFFFF;  
 }
+.moviesCard-info_LikeButtom{
+    border: none;
+    background-color: #2F2F2F;
+}
 
 @media screen and (max-width: 650px) {
     .moviesCard{

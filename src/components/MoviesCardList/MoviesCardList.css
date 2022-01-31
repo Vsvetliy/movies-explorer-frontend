@@ -35,6 +35,9 @@
     line-height: 15px;    
     color: #FFFFFF;
 }
+.MoviesCardList-buttom_none{
+    display: none;
+}
 
 @media screen and (max-width: 650px) {
     .MoviesCardList-box{

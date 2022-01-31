@@ -8,13 +8,16 @@ const HeaderDefault = () => {
         <header className = "HeaderDefault">
                           
             <div className="HeaderDefault-linkBox">
-
+            <Link to="/">
                 <img className="headerLogo" src={headerLogo} alt="Header logo" />
+            </Link>
                 <div className="HeaderDefault-linkBox__list">
-                    <a rel = "noreferrer"  href="https://practicum.yandex.ru" target="_blank" className="HeaderDefault-linkBox__list-link">Яндекс.Практикум</a>
-                    <Link to="/signin">
+                
+                <Link to="/signup" className="HeaderDefault-linkBox__list-link">Регистрация</Link>
+                
+                <Link to="/signin">
                     <button  className="HeaderDefault-linkBox__buttom">Войти</button>
-                    </Link>
+                </Link>
                 </div>
                
             </div>
