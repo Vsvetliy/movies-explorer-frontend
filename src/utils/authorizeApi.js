@@ -19,7 +19,8 @@ class AuthorizeApi {
             headers: this._options.headers,
             body: JSON.stringify({
                 password: data.password,
-                email: data.email
+                email: data.email,
+                name: data.name
             })
         });
         
@@ -52,7 +53,7 @@ class AuthorizeApi {
 
  const authorizeApi = new AuthorizeApi({
     // baseUrl: 'https://auth.nomoreparties.co/',
-    baseUrl: 'https://api.mesto.kolomeytsev.nomoredomains.club/',
+    baseUrl: 'https://api.movies.kolomeytsev.nomoredomains.xyz/',
     credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json'

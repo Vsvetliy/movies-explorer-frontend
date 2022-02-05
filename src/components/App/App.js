@@ -9,9 +9,11 @@ import NotFound from "../NotFound/NotFound"
 import React from 'react'
 import api from '../../utils/api';
 import CurrentUserContext from '../../contexts/CurrentUserContext'
+import authorizeApi from '../../utils/authorizeApi';
 
 
 function App() {
+    const [token, setToken] = React.useState(localStorage.getItem('token'));
     const [allMovies, setAllMovies] = React.useState([]);
     const [filterMovies, setFilterMovies] = React.useState([]);
     const [sliceMovies, setSliceMovies] = React.useState([]);
@@ -60,6 +62,40 @@ function App() {
             }
 
     }
+
+    /*регистрация*/
+  function handleSubmitUser(regData){
+   
+    const signUp =  authorizeApi.signUp(regData)
+    signUp
+    .then((data) => {
+     
+    //  setPopupText('Вы успешно зарегистрировались!')
+    //  setPopupIcon(regConfirmIcon)
+    //  setIsPopupInfo(true)
+       
+      
+       
+     })
+     .catch((err) => {
+    //    errorPopup(err)
+     });
+   }
+
+/*Авторизация*/ 
+
+function handleSubmitLoginUser(logData) {
+  
+    const signIn =  authorizeApi.signIn(logData)
+    signIn
+    .then((data) => {
+      localStorage.setItem('token', data.token);
+      setToken(data.token)
+    })
+    .catch((err) => {
+    //   errorPopup(err)
+    });
+  }
    
 
 
@@ -68,8 +104,8 @@ function App() {
             <CurrentUserContext.Provider value={allMovies}>
             <Routes>
                 
-                <Route path = "/signup" element = {<Register />} /> 
-                <Route path = "/signin" element = {<Login />} />  
+                <Route path = "/signup" element = {<Register onSubmitUser={handleSubmitUser}  />} /> 
+                <Route path = "/signin" element = {<Login onSubmitUser={handleSubmitLoginUser}  />} />  
                 <Route path = "/profile" element = {<Profile />} />   
                 <Route path = "/" element = { <Main />} />
                 <Route path = "/movies" element = {<Movies  cards={sliceMovies} handleNextButton={HandleNextButton} showNextButton={showNextButton} handlePoiskFilmov={PoiskFilmov}/>} />

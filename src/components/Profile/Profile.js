@@ -1,4 +1,5 @@
 import "./Profile.css"
+import React from "react";
 import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
 
 const Profile = () => {
