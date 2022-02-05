@@ -11,7 +11,7 @@ const MoviesCardList = (props) => {
             <div className = "MoviesCardList-box">
             {props.cards.map(card => (
              
-             <MoviesCard key={card.id}  dataCard={card} />
+             <MoviesCard deletLike = {props.deletLike} handleSaveMovies = {props.handleSaveMovies} key={card.id ?? card._id}  dataCard={card} />
              ))}
 
                 

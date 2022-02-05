@@ -12,7 +12,7 @@ const Movies = (props) => {
         <div className = "content">
            <HeaderLogIn/>
            <SearchForm KnopkaPoisk={props.handlePoiskFilmov} />                 
-           <MoviesCardList handleNextButton = {props.handleNextButton} cards={props.cards} showNextButton={props.showNextButton}/>
+           <MoviesCardList deletLike = {props.deletLike} handleSaveMovies = {props.handleSaveMovies} handleNextButton = {props.handleNextButton} cards={props.cards} showNextButton={props.showNextButton}/>
            <Footer /> 
 
         </div>

@@ -8,6 +8,7 @@ import SavedMovies from "../SavedMovies/SavedMovies"
 import NotFound from "../NotFound/NotFound"
 import React from 'react'
 import api from '../../utils/api';
+import MainApi from '../../utils/MainApi';
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 import authorizeApi from '../../utils/authorizeApi';
 
@@ -19,6 +20,55 @@ function App() {
     const [sliceMovies, setSliceMovies] = React.useState([]);
     const [showNextButton, setShowNextButton] = React.useState(false)
     const [showCount, setShowCount] = React.useState(3)
+    const [currentUser, setСurrentUser] = React.useState({});
+    const [saveMovies, setSaveMovies] = React.useState([]);
+    const [savedFilter, setSavedFilter] = React.useState({});
+
+
+
+    React.useEffect(() => {
+      if (token){
+        const dataUser = MainApi.getInfoUser(token);
+      
+        dataUser
+        .then((data) => {
+        setСurrentUser(data.data)
+      })
+      .catch((err) => {
+        // errorPopup(err)
+      });
+      }
+      }
+      , [token]);
+
+      function deletLike(toDelete) {
+        const dellike = MainApi.deleteCard(toDelete._id ?? toDelete.deleteId, token)
+
+        dellike
+        .then((data) => {
+          const deleted = allMovies.find(function(movie) { return movie.id === (toDelete.movieId ?? toDelete.id)})
+          deleted.liked = false;
+
+          FilterMovies(savedFilter.name, savedFilter.check)
+          SliceMovies()
+        })
+        .catch((err) => {
+          console.log(err)
+        });
+      }
+
+
+
+      function AddLIkes(movies){
+        for (let i = 0; i < movies.length; i++) {
+          let savedFilm = saveMovies.find(function (saved) { return saved.movieId === movies[i].id});
+
+          movies[i].liked = savedFilm !== undefined
+          movies[i].deleteId = savedFilm ? savedFilm._id : undefined;
+        }
+
+        setAllMovies(movies);
+      }
     
     function FilterMovies(nameFilmRU, isShort) {
         const resault = allMovies
@@ -40,27 +90,38 @@ function App() {
         setSliceMovies(filterMovies.slice(0, showCount))
     }
     function PoiskFilmov(e) {
-           
-            if(allMovies.length === 0) {
-                let dataUser = api.getInfoUser();
-                
-                dataUser
-                .then((data) => {
-                    setAllMovies(data)
-                    setShowCount(3)
-                    FilterMovies(e.name, e.check)
-                    SliceMovies()
-                })
-                .catch((err) => {
-                    
-                });
-            }
-            else {
-                setShowCount(3)
-                FilterMovies(e.name, e.check)
-                SliceMovies()
-            }
+      const qerysaveMovies= MainApi.getCards(token);
+      qerysaveMovies
+      .then((datasave) => {
 
+        setSaveMovies(datasave.data)
+
+        if(allMovies.length === 0) {
+          let dataUser = api.getInfoUser();
+          
+          dataUser
+          .then((data) => {
+              setShowCount(3)
+              AddLIkes(data)
+              FilterMovies(e.name, e.check)
+              SliceMovies()
+          })
+          .catch((err) => {
+              console.log(err)
+          });
+      }
+         else {
+          setShowCount(3)
+          AddLIkes(allMovies)
+          FilterMovies(e.name, e.check)
+          SliceMovies()
+         }
+        
+         setSavedFilter({name : e.name, check : e.check})
+      })
+      .catch((err) => {
+        console.log(err)
+      });
     }
 
     /*регистрация*/
@@ -96,20 +157,51 @@ function handleSubmitLoginUser(logData) {
     //   errorPopup(err)
     });
   }
-   
 
+  // Обновление данных Пользователя
+  function handleUpdateUser(dataUser) {
+    
+    const setInfoUser =  MainApi.setInfoUser(dataUser, token)
+      setInfoUser
+      .then((data) => {
+        setСurrentUser(data.data)
+        
+      })
+      .catch((err) => {
+        // errorPopup(err)
+      });
+      
+    }
+   
+    // добавляем карточку
+  function handleSaveMovies(data) {
+  
+    const addPlace =  MainApi.addNewCard(data, token)
+    addPlace
+    .then((dataAdd) => {
+       const added = allMovies.find(function(movie) { return movie.id === (data.movieId ?? data.id)})
+       added.liked = true;
+
+       FilterMovies(savedFilter.name, savedFilter.check)
+       SliceMovies()
+    })
+    .catch((err) => {
+      console.log(err)
+    });
+    
+  }
 
     return (
         <div className = "app">
-            <CurrentUserContext.Provider value={allMovies}>
+            <CurrentUserContext.Provider value={currentUser} >
             <Routes>
                 
                 <Route path = "/signup" element = {<Register onSubmitUser={handleSubmitUser}  />} /> 
                 <Route path = "/signin" element = {<Login onSubmitUser={handleSubmitLoginUser}  />} />  
-                <Route path = "/profile" element = {<Profile />} />   
+                <Route path = "/profile" element = {<Profile onUpdateUser={handleUpdateUser} />} />   
                 <Route path = "/" element = { <Main />} />
-                <Route path = "/movies" element = {<Movies  cards={sliceMovies} handleNextButton={HandleNextButton} showNextButton={showNextButton} handlePoiskFilmov={PoiskFilmov}/>} />
-                <Route path = "/saved-movies" element = {<SavedMovies />} />
+                <Route path = "/movies" element = {<Movies handleSaveMovies = {handleSaveMovies} deletLike = {deletLike} cards={sliceMovies} handleNextButton={HandleNextButton} showNextButton={showNextButton} handlePoiskFilmov={PoiskFilmov}/>} />
+                <Route path = "/saved-movies" element = {<SavedMovies deletLike = {deletLike} />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             </CurrentUserContext.Provider>
