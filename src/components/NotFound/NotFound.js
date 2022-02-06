@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
     return (
-        <div class="notFound">
+        <div className="notFound">
 
-        <div class="notFound-text">
+        <div className="notFound-text">
 
-          <h2 class="notFound-text__title">404</h2>
-          <p class="notFound-text__subtitle">Страница не найдена</p>
+          <h2 className="notFound-text__title">404</h2>
+          <p className="notFound-text__subtitle">Страница не найдена</p>
 
         </div>
   
-        <Link to="/" class="notFound-linkBack">Назад</Link>
+        <Link to="/" className="notFound-linkBack">Назад</Link>
         
       </div>
     );

@@ -8,19 +8,22 @@ import React from 'react'
 const SavedMovies = (props) => {
   const [token, setToken] = React.useState(localStorage.getItem('token'));  
   const [saveMovies, setSaveMovies] = React.useState([])
+  const [filterMovies, setFilterMovies] = React.useState([])
+  const [clikPoisk, setClikPoisk] = React.useState(false);
 
-    // function queryMovies(token) {
-      
-    //   const dataCards = MainApi.getCards(token);
-    //   dataCards
-    // .then((data) => {
-    //   setSaveMovies(data.data)
-    //   console.log(data)
-    // })
-    // .catch((err) => {
-    //   // errorPopup(err)
-    // });
-    // }
+    // Поиск фильмов
+
+  function PoiskFilmov(e) {
+    
+    const resault = saveMovies
+            .filter(movie => movie.nameRU.toLowerCase().includes(e.name.toLowerCase()))
+            .filter(movie => !e.check || movie.duration <= 40)
+       
+            setClikPoisk(true)
+        setFilterMovies(resault)
+             
+       
+  }
 
     React.useEffect(() => {
         onLoad()
@@ -31,6 +34,7 @@ const SavedMovies = (props) => {
         dataCards
           .then((data) => {
             setSaveMovies(data.data)
+            setFilterMovies(data.data)
           })
           .catch((err) => {
              // errorPopup(err)
@@ -52,8 +56,9 @@ const SavedMovies = (props) => {
     return (
         <div className = "SavedMovies">
           <HeaderLogIn/>
-        <SearchForm />                
-        <MoviesCardList deletLike = {deletLike} cards = {saveMovies} />
+        <SearchForm KnopkaPoisk={PoiskFilmov} />   
+        {filterMovies.length === 0 && clikPoisk ? (<p>Ничего не найдено</p>) : null}                  
+        <MoviesCardList deletLike = {deletLike} cards = {filterMovies} />
         <Footer />
 
         </div>

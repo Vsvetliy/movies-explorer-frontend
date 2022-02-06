@@ -55,11 +55,11 @@ export class Api {
                 year: data.year,
                 description: data.description.slice(0,300),
                 image: "https://api.nomoreparties.co/" + data.image.url,
-                trailer: data.trailerLink,
+                trailer: data.trailerLink ?? "https://www.kinopoisk.ru/",
                 thumbnail: "https://api.nomoreparties.co/" + data.image.formats.thumbnail.url,
                 movieId: data.id,
                 nameRU: data.nameRU.slice(0,30),
-                nameEN: data.nameEN.slice(0,30),
+                nameEN: data.nameEN ? data.nameEN.slice(0,30) : "no name",
               })
         });
         

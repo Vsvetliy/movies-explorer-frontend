@@ -22,9 +22,9 @@ const HeaderLogIn = () => {
                     <Link to="/movies" className="HeaderLogIn-linkBox__list-link">Фильмы</Link>
                     <Link to="/saved-movies" className="HeaderLogIn-linkBox__list-link">Сохранённые фильмы</Link>
                 </div>
-                
+                <Link to="/profile">
                     <img className="headerLogoLogIn" src={headerLogoLogIn} alt="Header logo" />
-                
+                </Link>
                 <div
                  className="navigateLogoPolosochki"
                   onClick={() => {axctive()}}
@@ -41,7 +41,7 @@ const HeaderLogIn = () => {
                         <Link to="/saved-movies" className="HeaderLogIn-navigate__box__link">Сохранённые фильмы</Link>
                     </div>
                     <Link to="/profile">
-                    <img className="NavigateLogo" src={NavigateLogoUser} alt="NavigateLogo" />
+                        <img className="NavigateLogo" src={NavigateLogoUser} alt="NavigateLogo" />
                     </Link>
                 </div>
             </div>

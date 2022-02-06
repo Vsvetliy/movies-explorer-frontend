@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useNavigate } from "react-router-dom";
+
 import  Register  from "../Register/Register";
 import Login from "../Login/Login";
 import Main from "../Main/Main"
@@ -11,9 +12,11 @@ import api from '../../utils/api';
 import MainApi from '../../utils/MainApi';
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 import authorizeApi from '../../utils/authorizeApi';
-
+import popupErr from '../../images/popupErr.svg';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 function App() {
+    
     const [token, setToken] = React.useState(localStorage.getItem('token'));
     const [allMovies, setAllMovies] = React.useState([]);
     const [filterMovies, setFilterMovies] = React.useState([]);
@@ -23,23 +26,62 @@ function App() {
     const [currentUser, setСurrentUser] = React.useState({});
     const [saveMovies, setSaveMovies] = React.useState([]);
     const [savedFilter, setSavedFilter] = React.useState({});
+    const [loading, setLoading] = React.useState(false);
+    const [clikPoisk, setClikPoisk] = React.useState(false);
+    const history = useNavigate()
+    const [filter, setfilter] = React.useState({})
+    const [isPopupInfo, setIsPopupInfo] = React.useState(false);
+    const [popupText, setPopupText] = React.useState();
+    const [popupIcon, setPopupIcon] = React.useState();
+    const [loggedIn, setLoggedIn] = React.useState(false);
+    
+    function errorPopup(err) {
+      console.log(err);
+      setPopupText('Что-то пошло не так! Попробуйте ещё раз.')
+      setPopupIcon(popupErr)
+      setIsPopupInfo(true)
+      
+     }
+
+
+
 
 
 
     React.useEffect(() => {
       if (token){
+        if (currentUser.id) return;
+        
         const dataUser = MainApi.getInfoUser(token);
       
         dataUser
         .then((data) => {
-        setСurrentUser(data.data)
+          // const oldUser = currentUser;
+          setСurrentUser(data.data)
+          setLoggedIn(true)
+          // if (currentUser._Id !== oldUser._Id)
+            history("/movies")
       })
       .catch((err) => {
-        // errorPopup(err)
+        errorPopup(err)
       });
+      }else{
+        setСurrentUser({})
+        history("/")
       }
+
       }
       , [token]);
+
+
+      function exitUser() {
+
+    
+        localStorage.removeItem("token")
+        setToken('')
+        setLoggedIn(false)
+    
+      }
 
       function deletLike(toDelete) {
         const dellike = MainApi.deleteCard(toDelete._id ?? toDelete.deleteId, token)
@@ -53,7 +95,7 @@ function App() {
           SliceMovies()
         })
         .catch((err) => {
-          console.log(err)
+          errorPopup(err)
         });
       }
 
@@ -71,6 +113,9 @@ function App() {
       }
     
     function FilterMovies(nameFilmRU, isShort) {
+      if(nameFilmRU === undefined) {
+        return
+      }
         const resault = allMovies
             .filter(movie => movie.nameRU.toLowerCase().includes(nameFilmRU.toLowerCase()))
             .filter(movie => !isShort || movie.duration <= 40)
@@ -89,39 +134,71 @@ function App() {
         )
         setSliceMovies(filterMovies.slice(0, showCount))
     }
+
+    React.useEffect(() => {
+      if (filter.name === undefined) return;
+
+      if(allMovies.length === 0) {
+        setLoading(true);
+        let dataUser = api.getInfoUser();
+        
+        dataUser
+        .then((data) => {
+            setLoading(false);
+            setShowCount(3)
+            AddLIkes(data)
+            
+        })
+        .catch((err) => {
+          errorPopup(err)
+        });
+    }
+       else {
+        setShowCount(3)
+        AddLIkes(allMovies)
+        
+
+       }
+      
+       
+
+      }
+      , [saveMovies, allMovies, filter.name]);
+
+
+      React.useEffect(() => {
+        if (filter.name === undefined) return;
+        FilterMovies(filter.name, filter.check)
+        
+      }
+      , [allMovies, filter.check, filter.name]);
+
+
+      React.useEffect(() => {
+        if (filter.name === undefined) return;
+        SliceMovies()
+        setClikPoisk(true)
+        setSavedFilter({name : filter.name, check : filter.check})
+
+      }
+      , [filterMovies, filter.check, filter.name, showCount]);
+
+// Поиск фильмов
     function PoiskFilmov(e) {
+      setfilter(e)
       const qerysaveMovies= MainApi.getCards(token);
       qerysaveMovies
       .then((datasave) => {
 
         setSaveMovies(datasave.data)
 
-        if(allMovies.length === 0) {
-          let dataUser = api.getInfoUser();
-          
-          dataUser
-          .then((data) => {
-              setShowCount(3)
-              AddLIkes(data)
-              FilterMovies(e.name, e.check)
-              SliceMovies()
-          })
-          .catch((err) => {
-              console.log(err)
-          });
-      }
-         else {
-          setShowCount(3)
-          AddLIkes(allMovies)
-          FilterMovies(e.name, e.check)
-          SliceMovies()
-         }
         
-         setSavedFilter({name : e.name, check : e.check})
+
       })
       .catch((err) => {
-        console.log(err)
+        errorPopup(err)
       });
+
     }
 
     /*регистрация*/
@@ -131,15 +208,12 @@ function App() {
     signUp
     .then((data) => {
      
-    //  setPopupText('Вы успешно зарегистрировались!')
-    //  setPopupIcon(regConfirmIcon)
-    //  setIsPopupInfo(true)
-       
+      history("/signin")
       
        
      })
      .catch((err) => {
-    //    errorPopup(err)
+        errorPopup(err)
      });
    }
 
@@ -152,9 +226,10 @@ function handleSubmitLoginUser(logData) {
     .then((data) => {
       localStorage.setItem('token', data.token);
       setToken(data.token)
+      
     })
     .catch((err) => {
-    //   errorPopup(err)
+      errorPopup(err)
     });
   }
 
@@ -168,7 +243,7 @@ function handleSubmitLoginUser(logData) {
         
       })
       .catch((err) => {
-        // errorPopup(err)
+        errorPopup(err)
       });
       
     }
@@ -186,7 +261,7 @@ function handleSubmitLoginUser(logData) {
        SliceMovies()
     })
     .catch((err) => {
-      console.log(err)
+      errorPopup(err)
     });
     
   }
@@ -194,16 +269,21 @@ function handleSubmitLoginUser(logData) {
     return (
         <div className = "app">
             <CurrentUserContext.Provider value={currentUser} >
-            <Routes>
-                
-                <Route path = "/signup" element = {<Register onSubmitUser={handleSubmitUser}  />} /> 
-                <Route path = "/signin" element = {<Login onSubmitUser={handleSubmitLoginUser}  />} />  
-                <Route path = "/profile" element = {<Profile onUpdateUser={handleUpdateUser} />} />   
-                <Route path = "/" element = { <Main />} />
-                <Route path = "/movies" element = {<Movies handleSaveMovies = {handleSaveMovies} deletLike = {deletLike} cards={sliceMovies} handleNextButton={HandleNextButton} showNextButton={showNextButton} handlePoiskFilmov={PoiskFilmov}/>} />
-                <Route path = "/saved-movies" element = {<SavedMovies deletLike = {deletLike} />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
+                <Routes>
+                    <Route path = "/" element = { <Main />} /> 
+                    <Route path = "/signup" element = {<Register onSubmitUser={handleSubmitUser}  />} /> 
+                    <Route path = "/signin" element = {<Login onSubmitUser={handleSubmitLoginUser}  />} /> 
+                    
+                    <Route path="*" element={<NotFound />} />
+
+                    <Route path = "/profile" loggedIn={loggedIn} element = {<Profile exitUser = {exitUser} onUpdateUser={handleUpdateUser} />} />   
+
+
+                    
+                    <Route path = "/movies" element = {<Movies setClikPoisk = {clikPoisk} loading ={loading} handleSaveMovies = {handleSaveMovies} deletLike = {deletLike} cards={sliceMovies} handleNextButton={HandleNextButton} showNextButton={showNextButton} handlePoiskFilmov={PoiskFilmov}/>} />
+                    <Route path = "/saved-movies" element = {<SavedMovies deletLike = {deletLike} />} />
+                    
+                </Routes>
             </CurrentUserContext.Provider>
         </div>
     );

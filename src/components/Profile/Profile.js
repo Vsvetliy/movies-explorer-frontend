@@ -5,14 +5,13 @@ import CurrentUserContext from '../../contexts/CurrentUserContext'
 
 const Profile = (props) => {
   const currentUser = React.useContext(CurrentUserContext);
-  
   const inputName = React.createRef();
   const inputEmail = React.createRef();
+  const [token, setToken] = React.useState(localStorage.getItem('token'));
   
   
   
-  
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     
@@ -46,7 +45,7 @@ const Profile = (props) => {
            
         <div className='profile-buttonbox'>
           <h3 onClick={handleSubmit}  className='profile-buttonbox__reg'><a className='profile-buttonbox__reg__link' href="/signup">Редактировать</a></h3>
-          <h3 className='profile-buttonbox__exit'><a className='profile-buttonbox__exit__link' href="/signup">Выйти из аккаунта</a></h3>
+          <h3 onClick={props.exitUser} className='profile-buttonbox__exit'><a className='profile-buttonbox__exit__link' href="/signup">Выйти из аккаунта</a></h3>
         </div>
       </div>  
     );

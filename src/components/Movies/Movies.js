@@ -1,17 +1,19 @@
 import "./Movies.css"
 import React from 'react'
 import SearchForm from "../SearchForm/SearchForm"
-import CurrentUserContext from '../../contexts/CurrentUserContext'
 import MoviesCardList from "../MoviesCardList/MoviesCardList"
 import Footer from "../Footer/Footer"
 import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
+import Preloader  from '../Preloader/Preloader';
+import NoSearch  from '../NoSearch/NoSearch';
 const Movies = (props) => {
-    
-    const CurrentUser = React.useContext(CurrentUserContext);
     return (
         <div className = "content">
            <HeaderLogIn/>
-           <SearchForm KnopkaPoisk={props.handlePoiskFilmov} />                 
+           <SearchForm KnopkaPoisk={props.handlePoiskFilmov} /> 
+
+           {props.loading ? (<Preloader />) : props.cards.length === 0 && props.setClikPoisk ? (<NoSearch />) : null}     
+
            <MoviesCardList deletLike = {props.deletLike} handleSaveMovies = {props.handleSaveMovies} handleNextButton = {props.handleNextButton} cards={props.cards} showNextButton={props.showNextButton}/>
            <Footer /> 
 
