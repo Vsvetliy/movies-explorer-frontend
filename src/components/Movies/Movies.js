@@ -10,7 +10,7 @@ const Movies = (props) => {
     return (
         <div className = "content">
            <HeaderLogIn/>
-           <SearchForm KnopkaPoisk={props.handlePoiskFilmov} /> 
+           <SearchForm defaultValue = { localStorage.getItem("films") !== null ? localStorage.getItem("films") : ""} defaultValueCheck = {localStorage.getItem("check") === "true"} KnopkaPoisk={props.handlePoiskFilmov} /> 
 
            {props.loading ? (<Preloader />) : props.cards.length === 0 && props.setClikPoisk ? (<NoSearch />) : null}     
 

@@ -49,7 +49,7 @@ export class Api {
             headers: {"Authorization" : `Bearer ${jwt}`, ...this._options.headers},
             body: JSON.stringify({
                 
-                country: data.country,
+                country: data.country.slice(0,30),
                 director: data.director.slice(0,30),
                 duration: data.duration,
                 year: data.year,

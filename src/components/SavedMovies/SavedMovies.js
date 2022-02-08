@@ -5,6 +5,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList"
 import Footer from "../Footer/Footer"
 import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
 import React from 'react'
+import NoSearch  from '../NoSearch/NoSearch';
 const SavedMovies = (props) => {
   const [token, setToken] = React.useState(localStorage.getItem('token'));  
   const [saveMovies, setSaveMovies] = React.useState([])
@@ -57,7 +58,7 @@ const SavedMovies = (props) => {
         <div className = "SavedMovies">
           <HeaderLogIn/>
         <SearchForm KnopkaPoisk={PoiskFilmov} />   
-        {filterMovies.length === 0 && clikPoisk ? (<p>Ничего не найдено</p>) : null}                  
+        {filterMovies.length === 0 && clikPoisk ? (<NoSearch />) : null}                  
         <MoviesCardList deletLike = {deletLike} cards = {filterMovies} />
         <Footer />
 

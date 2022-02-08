@@ -2,6 +2,7 @@ import "./Profile.css"
 import React from "react";
 import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
 import CurrentUserContext from '../../contexts/CurrentUserContext'
+import NoSearch from '../NoSearch/NoSearch'
 
 const Profile = (props) => {
   const currentUser = React.useContext(CurrentUserContext);
@@ -13,7 +14,8 @@ const Profile = (props) => {
   
 
   function handleSubmit(e) {
-    e.preventDefault();
+      if(inputName.current.value === currentUser.name && inputEmail.current.value === currentUser.email) return;
+   
     
   
       props.onUpdateUser({
@@ -22,7 +24,7 @@ const Profile = (props) => {
         });
     }
 
-
+    // onClick={handleSubmit}
 
     return (
       <div className = "profile">
@@ -42,10 +44,11 @@ const Profile = (props) => {
               <input ref={inputEmail}  defaultValue={currentUser.email}    type="email" id="email" className="profile-form__input" name="email" required></input>
             </div>                 
         </form>
-           
+        {props.saveUser ?  <NoSearch /> : null}
         <div className='profile-buttonbox'>
-          <h3 onClick={handleSubmit}  className='profile-buttonbox__reg'><a className='profile-buttonbox__reg__link' href="/signup">Редактировать</a></h3>
-          <h3 onClick={props.exitUser} className='profile-buttonbox__exit'><a className='profile-buttonbox__exit__link' href="/signup">Выйти из аккаунта</a></h3>
+          <h3 onClick={handleSubmit}  className='profile-buttonbox__reg'>Редактировать</h3>
+
+          <h3 onClick={props.exitUser} className='profile-buttonbox__exit'><a className='profile-buttonbox__exit__link' href="/">Выйти из аккаунта</a></h3>
         </div>
       </div>  
     );

@@ -25,11 +25,11 @@ const SearchForm = (props) => {
         <div className = "searchFormBox">
             <div className = "searchFormBox-iputBox">
                 <img className = "searchFormBox-iputBox-icon"  src={searchIcon} alt="стрелка"></img>
-                <input ref={inputName}  name = "name" required placeholder="Фильм" className = "searchFormBox-iputBox-input"></input>
+                <input ref={inputName} defaultValue = {props.defaultValue} name = "name" required placeholder="Фильм" className = "searchFormBox-iputBox-input"></input>
                 <button onClick =  {handleSubmit} className = "searchFormBox-iputBox-button"><img className="searchFormBox-button-icon"  src={searchBtnIcon} alt="стрелка"></img></button>
             </div>
             <label className="checkbox">
-                <input ref={inputcheckbox}  name = "name" type="checkbox" />
+                <input ref={inputcheckbox} defaultChecked = {props.defaultValueCheck}  name = "name" type="checkbox" />
                 <div className="checkbox__text">Короткометражки</div>
             </label>
 
