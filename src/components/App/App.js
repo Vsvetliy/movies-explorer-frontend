@@ -61,6 +61,7 @@ function App() {
           setLoggedIn(true)
           // if (currentUser._Id !== oldUser._Id)
             history("/movies")
+            
       })
       .catch((err) => {
         errorPopup(err)
@@ -270,7 +271,7 @@ function handleSubmitLoginUser(logData) {
         <div className = "app">
             <CurrentUserContext.Provider value={currentUser} >
                 <Routes>
-                    <Route path = "/" element = { <Main />} /> 
+                    <Route path = "/" element = { <Main loggedIn = {loggedIn} />} /> 
                     <Route path = "/signup" element = {<Register onSubmitUser={handleSubmitUser}  />} /> 
                     <Route path = "/signin" element = {<Login onSubmitUser={handleSubmitLoginUser}  />} /> 
                     

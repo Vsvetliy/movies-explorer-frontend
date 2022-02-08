@@ -5,11 +5,15 @@ import AboutMe from "../AboutMe/AboutMe"
 import Portfolio from "../Portfolio/Portfolio"
 import Footer from "../Footer/Footer"
 import HeaderDefault from "../HeaderDefault/HeaderDefault"
+import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
 
-const Main = () => {
+const Main = (props) => {
     return (
         <main className = "content">
-        <HeaderDefault/>
+
+{props.loggedIn ? <HeaderLogIn /> : <HeaderDefault />}
+
+    
         
         <Promo />          
         <AboutProject />         
