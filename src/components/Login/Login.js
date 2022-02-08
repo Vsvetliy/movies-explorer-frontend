@@ -29,12 +29,12 @@ const Login = (props) => {
         <form onSubmit={handleSubmit} className="login-form">
             <div className = "login-form__inputBox">
                 <label htmlFor="email" className = "login-form__label">E-mail</label>
-                <input ref={inputEmail}  defaultValue = "TextText" type="email" id="email" className = "login-form__input" name="email" required></input>
+                <input ref={inputEmail}   type="email" id="email" className = "login-form__input" name="email" required></input>
             </div>
 
             <div className = "login-form__inputBox"> 
                 <label htmlFor="password" className = "login-form__label">Пароль</label>
-                <input ref={inputPassword}  type = "password" defaultValue = "TextText" className = "login-form__input login-form__input_pass" maxLength="20" minLength="2" id="password" name="password" required></input>
+                <input ref={inputPassword}  type = "password"  className = "login-form__input login-form__input_pass" maxLength="20" minLength="2" id="password" name="password" required></input>
             </div>
         </form>
         <button onClick={handleSubmit}  type = "submit" name = "submit-button" className = "login-submit">Войти</button>

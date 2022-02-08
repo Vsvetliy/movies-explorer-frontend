@@ -35,16 +35,16 @@ function Register(props){
         <form  onSubmit={handleSubmit} className = "register-form">
             <div className = "register-form__inputBox">
                 <label htmlFor="name" className = "register-form__label">Имя</label>   
-                <input required  ref={inputName} defaultValue = "TextText" type="text" id="name" className = "register-form__input" name="name" ></input>
+                <input required  ref={inputName}  type="text" id="name" className = "register-form__input" name="name" ></input>
             </div>
             <div className = "register-form__inputBox">
                 <label htmlFor="email" className = "register-form__label">E-mail</label>
-                <input defaultValue = "TextText" required minLength="2" maxLength="30"  ref={inputEmail} type="email" id="email" className = "register-form__input" name="email" ></input>
+                <input  required minLength="2" maxLength="30"  ref={inputEmail} type="email" id="email" className = "register-form__input" name="email" ></input>
             </div>
 
             <div className = "register-form__inputBox"> 
                 <label htmlFor="password" className = "register-form__label">Пароль</label>
-                <input required  ref={inputPassword} type = "password" defaultValue = "TextText" className = "register-form__input register-form__input_pass" maxLength="20" minLength="2" id="password" name="password" ></input>
+                <input required  ref={inputPassword} type = "password"  className = "register-form__input register-form__input_pass" maxLength="20" minLength="2" id="password" name="password" ></input>
                 <span className="register-form-error" id="register-form-error">Что-то пошло не так...</span>
             </div>
 
