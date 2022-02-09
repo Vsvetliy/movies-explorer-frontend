@@ -15,15 +15,16 @@ const Login = (props) => {
 
 
   function handleUserInput () {
-    if (inputEmail.current.value === '') {
-      setInputMailErr("email error")
-    }
-    else {
+    if (inputEmail.current.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       setInputMailErr("")
     }
+    else {
+      // setInputMailErr("")
+      setInputMailErr("Некорректный e-mail")
+    }
     
-    if (inputPassword.current.value === '') {
-      setInputPasswordErr("password error")
+    if (inputPassword.current.value.length < 2) {
+      setInputPasswordErr("короткий пароль")
     }
     else {
       setInputPasswordErr("")
@@ -32,9 +33,6 @@ const Login = (props) => {
     setIsValid(inputPasswordErr === '' && inputMailErr === '')
   }
 
-
-
-
   function handleSubmit(e) {
     e.preventDefault();
     props.onSubmitUser(
@@ -42,7 +40,6 @@ const Login = (props) => {
     password:inputPassword.current.value,}
     );
   }
-
 
 
     return (
@@ -58,12 +55,12 @@ const Login = (props) => {
                 <label htmlFor="email" className = "login-form__label">E-mail</label>
                 <input ref={inputEmail} onChange={handleUserInput}   type="email" id="email" className = "login-form__input" name="email" required></input>
             </div>
-<span className = "login-form__label" >{inputMailErr}</span>
+            <span className = "login-form__label login-form__label-red" >{inputMailErr}</span>
             <div className = "login-form__inputBox"> 
                 <label htmlFor="password" className = "login-form__label">Пароль</label>
                 <input ref={inputPassword}  onChange={handleUserInput} type = "password"  className = "login-form__input login-form__input_pass" maxLength="20" minLength="2" id="password" name="password" required></input>
             </div>
-            <span className = "login-form__label">{inputPasswordErr}</span>
+            <span className = "login-form__label login-form__label-red">{inputPasswordErr}</span>
         </form>
         <button onClick={handleSubmit} disabled={isValid === false} type = "submit" name = "submit-button" className = "login-submit">Войти</button>
         <div className = "login-box">

@@ -7,8 +7,37 @@ import { Route, Redirect } from "react-router-dom";
 function Register(props){
   const inputEmail = React.createRef();
   const inputPassword = React.createRef();
-
   const inputName = React.createRef();
+
+  const [inputPasswordErr, setInputPasswordErr] = React.useState('');
+  const [inputMailErr, setInputMailErr] = React.useState('');
+  const [inputNameErr, setInputNameErr] = React.useState('');
+  const [isValid, setIsValid] = React.useState(false);
+
+  function handleUserInput () {
+    if (inputEmail.current.value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+      setInputMailErr("")
+    }
+    else {
+      // setInputMailErr("")
+      setInputMailErr("Некорректный e-mail")
+    }
+    
+    if (inputPassword.current.value.length < 2) {
+      setInputPasswordErr("короткий пароль")
+    }
+    else {
+      setInputPasswordErr("")
+    }
+    if (inputName.current.value.length < 2) {
+      setInputNameErr("Введите имя")
+    }
+    else {
+      setInputNameErr("")
+    }
+
+    setIsValid(inputNameErr === '' && inputPasswordErr === '' && inputMailErr === '')
+  }
 
   function handleSubmit(e) {
     // e.preventDefault();
@@ -35,23 +64,24 @@ function Register(props){
         <form  onSubmit={handleSubmit} className = "register-form">
             <div className = "register-form__inputBox">
                 <label htmlFor="name" className = "register-form__label">Имя</label>   
-                <input required  ref={inputName}  type="text" id="name" className = "register-form__input" name="name" ></input>
+                <input required onChange={handleUserInput} ref={inputName}  type="text" id="name" className = "register-form__input" name="name" ></input>
             </div>
+            <span className = "login-form__label login-form__label-red">{inputNameErr}</span>
             <div className = "register-form__inputBox">
                 <label htmlFor="email" className = "register-form__label">E-mail</label>
-                <input  required minLength="2" maxLength="30"  ref={inputEmail} type="email" id="email" className = "register-form__input" name="email" ></input>
+                <input  required onChange={handleUserInput} minLength="2" maxLength="30"  ref={inputEmail} type="email" id="email" className = "register-form__input" name="email" ></input>
             </div>
-
+            <span className = "login-form__label login-form__label-red" >{inputMailErr}</span>
             <div className = "register-form__inputBox"> 
                 <label htmlFor="password" className = "register-form__label">Пароль</label>
-                <input required  ref={inputPassword} type = "password"  className = "register-form__input register-form__input_pass" maxLength="20" minLength="2" id="password" name="password" ></input>
-                <span className="register-form-error" id="register-form-error">Что-то пошло не так...</span>
+                <input required onChange={handleUserInput} ref={inputPassword} type = "password"  className = "register-form__input register-form__input_pass" maxLength="20" minLength="2" id="password" name="password" ></input>
+                {/* <span className="register-form-error" id="register-form-error">Что-то пошло не так...</span> */}
             </div>
-
+            <span className = "login-form__label login-form__label-red">{inputPasswordErr}</span>
         </form>
 
 
-        <button onClick={handleSubmit} type = "submit" name = "submit-button" className = "register-submit">Зарегистрироваться</button>
+        <button onClick={handleSubmit} disabled={isValid === false} type = "submit" name = "submit-button" className = "register-submit">Зарегистрироваться</button>
         <div className = "register-box">
             <h3 className = "register-box__text">Уже зарегистрированы? </h3>
             <Link to="/signin" className = "register-box__link" href="/signin">Войти</Link>

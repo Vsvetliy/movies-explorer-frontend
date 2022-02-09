@@ -71,6 +71,9 @@
     line-height: 17px;
     color: #EE3465;
 }
+.login-form__label-red{
+    color: #EE3465;
+}
 
 
 .login-form__inputBox{
