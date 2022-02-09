@@ -2,7 +2,7 @@ import "./Profile.css"
 import React from "react";
 import HeaderLogIn from "../HeaderLogIn/HeaderLogIn"
 import CurrentUserContext from '../../contexts/CurrentUserContext'
-import NoSearch from '../NoSearch/NoSearch'
+import UpdateOk from '../UpdateOk/UpdateOk'
 
 const Profile = (props) => {
   const currentUser = React.useContext(CurrentUserContext);
@@ -44,7 +44,7 @@ const Profile = (props) => {
               <input ref={inputEmail}  defaultValue={currentUser.email}    type="email" id="email" className="profile-form__input" name="email" required></input>
             </div>                 
         </form>
-        {props.saveUser ?  <NoSearch /> : null}
+        {props.saveUser ?  <UpdateOk /> : null}
         <div className='profile-buttonbox'>
           <h3 onClick={handleSubmit}  className='profile-buttonbox__reg'>Редактировать</h3>
 

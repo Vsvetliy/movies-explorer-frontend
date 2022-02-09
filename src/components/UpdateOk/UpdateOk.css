@@ -1,0 +1,15 @@
+.updateOk{
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid rgb(1, 206, 52);
+    top: 50%;
+    
+    
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+}
